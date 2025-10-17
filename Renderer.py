@@ -48,6 +48,5 @@ class Renderer:
             time.sleep(1)
 
 renderer = Renderer()
-
 renderer.DrawLine(10, 5, 30, 5, 'fill')
 renderer.Render()
