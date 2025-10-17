@@ -5,11 +5,12 @@ import obj
 colorama.init(autoreset=True)
 
 class Renderer:
-    def __init__(self, width=80, height=40):
+    def __init__(self, width=80, height=40, char='К'):
         self.width = width
         self.height = height
         self.map = [[' ' for _ in range(width)] for _ in range(height)]
         self.objects = []
+        self.char = char
     
     def ClearMap(self):
         for y in range(self.height):
@@ -17,11 +18,11 @@ class Renderer:
                 self.map[y][x] = ' '
 
     def DrawOne(self, x, y, type):
-        char = 'X' if type == 'fill' else ' '
+        char = self.char if type == 'fill' else ' '
         self.map[y][x] = char
 
     def DrawLine(self, x1, y1, x2, y2, type):
-        char = 'X' if type == 'fill' else ' '
+        char = self.char if type == 'fill' else ' '
         if y1 == y2:
             for x in range(min(x1, x2), max(x1, x2) + 1):
                 self.map[y1][x] = char
@@ -46,7 +47,3 @@ class Renderer:
             self.DrawLine(30, 10, 30, 10, 'fill')
             self.Render()
             time.sleep(1)
-
-renderer = Renderer()
-renderer.DrawLine(10, 5, 30, 5, 'fill')
-renderer.Render()
