@@ -28,17 +28,5 @@ renderer = Renderer()
 renderer.DrawLine(10, 5, 30, 5, 'fill')
 renderer.Render()
 
-### inputhandler.py
-This is a file for processing keys.
-
-1. _captureinput:
-starts a parallel process
-
-2. _get_key:
-determines whether a key is pressed and which one
-
-3. get_key
-variable storing the last key
-
 ### main.py
 it's a file for the main logic. This is where you write your code.
