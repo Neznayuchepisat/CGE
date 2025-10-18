@@ -1,5 +1,5 @@
 from Renderer import Renderer
-from obj import Object
+from obj import Object, TextObj
 import time
 import inputhandler
 
@@ -17,9 +17,11 @@ inputhand = inputhandler.InputHandler()
 
 obj_T = Object(10, 5, pixels_T, char='R')
 linefirst = Object(0, 0, pfirst, char='█')
+textobj = TextObj(2, 2, "CGE it's not hard to make")
 
 renderer.AddObject(linefirst)
 renderer.AddObject(obj_T)
+renderer.AddObject(textobj)
 
 
 dx = 1
@@ -40,6 +42,8 @@ while True:
         obj_T.x -= 1
     elif key == 'd':
         obj_T.x += 1
+    elif key == 'r':
+        obj_T.rotate()
     elif key == 'q':
         break  
     renderer.Render()
